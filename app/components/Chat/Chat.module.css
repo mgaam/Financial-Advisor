@@ -1,0 +1,27 @@
+.chatScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 2rem;
+}
+
+.chatMessages {
+}
+
+.chatForm {
+    width: 75vw;
+    height: 3rem;
+}
+
+.formText {
+    width: 80%;
+    height: 100%;
+}
+
+.formButton {
+    width: 20%;
+    height: 100%;
+    padding: 1rem;
+    background-color: rgba(var(--callout-rgb), 0.5);
+    border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+}

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -9,8 +8,8 @@ export default function Home() {
         <h1>Say Hello to Your Personal Investment Advisor</h1>
       </div>
 
-      <div className={styles.center}>
-        <a href="/chat" className={styles.description}>
+      <div className={`${styles.center} ${styles.description}`}>
+        <a href="/chat">
           <p>Let's Chat</p>
         </a>
       </div>
