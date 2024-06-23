@@ -10,18 +10,18 @@ const Chat = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const userMessage = e.target[0].value
-        setMessages((prevMessages) => [...prevMessages, userMessage]);
+        let newMessages = [...messages, {role: 'user', content: e.target[0].value}]
+        setMessages(newMessages);
         setText('');
         toast.promise(fetch('/api/complete-chat',{
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
             },
-            body: JSON.stringify({ message: userMessage }),
+            body: JSON.stringify({ messages: newMessages }),
         }).then((res) => {
             res.json().then((response) => {
-                setMessages((prevMessages) => [...prevMessages, response.chatResponse]);
+                setMessages((prevMessages) => [...prevMessages, response]);
             })
         }), {
             loading: 'Fetching financial data for you...',
@@ -32,7 +32,7 @@ const Chat = () => {
     return <div className={styles.chatScreen}>
         <div className={styles.chatMessages}>
             {messages.map((message) => 
-                <p className={styles.chatMessage}>{message}</p>
+                <p className={styles.chatMessage}>{message.content}</p>
             )}
         </div>
         <div>
