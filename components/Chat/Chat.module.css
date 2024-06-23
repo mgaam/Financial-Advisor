@@ -5,10 +5,27 @@
     margin: 2rem;
 }
 
+.chatMessages {
+    overflow-y: scroll;
+    /* hiding scrollbar:  */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.chatMessages::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
 .chatMessage {
+    background-color: beige;
+    color: black;
 }
 
 .chatForm {
+    justify-content: center;
+}
+
+.chatFormInner {
     width: 75vw;
     height: 3rem;
 }

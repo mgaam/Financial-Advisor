@@ -31,13 +31,16 @@ const Chat = () => {
     }
     return <div className={styles.chatScreen}>
         <div className={styles.chatMessages}>
-            {messages.map((message) => 
-                <p className={styles.chatMessage}>{message.content}</p>
+            {messages.map(({role, content}) => 
+                <div>
+                    <span>{role == 'user' ? '👤' : '🤖'}</span>
+                    <p className={styles.chatMessage}>{content}</p>
+                </div>
             )}
         </div>
-        <div>
+        <div className={styles.chatForm}>
             <form onSubmit={handleSubmit}>
-                <div className={styles.chatForm}>
+                <div className={styles.chatFormInner}>
                 <input className={styles.formText} type="text" placeholder="Ask me for help!" value={text} required onChange={(e) => setText(e.target.value)}/>
                 <button className={styles.formButton} type = 'submit'>Send</button>
                 </div>
