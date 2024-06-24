@@ -22,7 +22,15 @@ const Chat = () => {
         }).then((res) => {
             res.json().then((response) => {
                 setMessages((prevMessages) => [...prevMessages, response]);
+            }).catch((err) => {
+                console.error("error trying to convert complete chat response to json", err)
+                setMessages((prevMessages) => [...prevMessages, {role: 'assistant', content: 'something went wrong, please try again or contact us if the issue persists'}]);
+                throw err
             })
+        }).catch((err) => {
+            console.error("error trying to complete chat", err)
+            setMessages((prevMessages) => [...prevMessages, {role: 'assistant', content: 'something went wrong, please try again or contact us if the issue persists'}]);
+            throw err
         }), {
             loading: 'Generating response...',
             success: 'Done!',
@@ -32,8 +40,8 @@ const Chat = () => {
 
     return <div className={styles.chatScreen}>
         <div className={styles.chatMessages}>
-            {messages.map(({role, content}) => 
-                <div>
+            {messages.map(({role, content}, index) => 
+                <div key={index}>
                     <span>{role == 'user' ? '👤' : '🤖'}</span>
                     <pre className={styles.chatMessage}>{content}</pre>
                     <br/>
