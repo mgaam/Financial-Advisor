@@ -24,17 +24,18 @@ const Chat = () => {
                 setMessages((prevMessages) => [...prevMessages, response]);
             })
         }), {
-            loading: 'Fetching financial data for you...',
+            loading: 'Generating response...',
             success: 'Done!',
             error: 'Error generating response',
         })
     }
+
     return <div className={styles.chatScreen}>
         <div className={styles.chatMessages}>
             {messages.map(({role, content}) => 
                 <div>
                     <span>{role == 'user' ? '👤' : '🤖'}</span>
-                    <p className={styles.chatMessage}>{content}</p>
+                    <pre className={styles.chatMessage}>{content}</pre>
                 </div>
             )}
         </div>
