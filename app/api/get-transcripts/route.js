@@ -7,8 +7,8 @@ export async function POST(req) {
     }});
     const responseBody = await res.json()
     return Response.json({
-        transcriptContent: '\n The transcript for the relevant earnings call' + 
+        transcriptContent: '\n\nThe transcript for the relevant earnings call' + 
             `(company: ${responseBody[0].symbol}, year: ${responseBody[0].year}, quarter: ${responseBody[0].quarter})` +
-            `is is added below: \n ${responseBody[0].content}`
+            `is is added below: \n\n${responseBody[0].content}`
     });
 };

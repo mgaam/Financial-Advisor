@@ -36,6 +36,7 @@ const Chat = () => {
                 <div>
                     <span>{role == 'user' ? '👤' : '🤖'}</span>
                     <pre className={styles.chatMessage}>{content}</pre>
+                    <br/>
                 </div>
             )}
         </div>

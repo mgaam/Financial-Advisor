@@ -6,6 +6,7 @@
 }
 
 .chatMessages {
+    /* margin: 1.5rem 0; */
     overflow-y: scroll;
     /* hiding scrollbar:  */
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
@@ -19,8 +20,8 @@
 .chatMessage {
     white-space: pre-wrap; /* Preserve whitespace and wrap text */
     word-wrap: break-word;  /* Ensure long words are broken to fit */
-    background-color: beige;
-    color: black;
+    /* background-color: black;
+    color: white; */
 }
 
 .chatForm {
